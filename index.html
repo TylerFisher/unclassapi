@@ -1,13 +1,30 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
-<head>
-<title>Listing Senators</title>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-</head>
+	<head>
+		<title>Listing Senators</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	</head>
 
-<body>
+	<body>
+		<script>
+		var baseURL = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/"
 
-<script>
-</script>
-</body>
+		var apiKey = "7dbf3c80446523dfdc9c69d92ebbce94:7:66319347"
+		
+		$.getJSON(baseURL + "members/senate/IL/current.json?api-key=" + apiKey, function(data) {
+			var results = data.results;
+
+			$.each(results, function(key, value) {
+				var senators = value;
+        		$(".senators").append("<li>" + senators.name + "</li>");
+        		
+        	});
+		});
+
+
+		</script>
+		<h1>Illinois Senators</h1>
+		<ul class="senators">
+		</ul>
+	</body>
 </html>

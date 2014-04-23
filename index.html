@@ -7,23 +7,7 @@
 
 <body>
 
-<ul class="senators">
-</ul>
-
 <script>
-    var baseURL = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/";
-    var apiKey = "959bbbb8bd8a31744b827167e3cd7412:19:69296134";
-
-    $.getJSON(baseURL + "members/senate/HI/current.json?api-key=" + apiKey, function(data) {
-        listResults(data.results)
-    });
-
-    var listResults = function(results) {
-        $.each(results, function(key, val) {
-            console.log(key, val);
-            $('.senators').append('<li>' + val.name + '</li>');
-        })
-    }
 </script>
 </body>
 </html>

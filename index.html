@@ -1,13 +1,24 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
 <head>
 <title>Listing Senators</title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
-
 <body>
+	<p>
+		<ul class="senators">
+		</ul>	
+	</p>
+	<script>
+		var baseURL = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress"
+		var apiKey = "41a83df1dcff2e94d6ab3199aa8f2554:8:68804896"
 
-<script>
-</script>
+		$.getJSON("http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/senate/IL/current.json?api-key=" + apiKey, function(data) {
+		    var results = data.results;
+
+		    $.each(results, function(key, value) {
+		        $(".senators").append("<li>" + value.name + "</li>");
+		    });
+		});
+	</script>
 </body>
 </html>

@@ -8,6 +8,20 @@
 <body>
 
 <script>
+var base = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/";
+var key = "65df57120f408aac6ea9a92650149b6d:9:69301058";
+
+  $.getJSON(base + "members/senate/IL/current.json?api-key=" + key, function(data) {
+    // store your results!
+    var results = data.results;
+
+    // loop through your results!
+    $.each(results, function(key, value) {
+        console.log(value.name, value.twitter_id);
+
+        
+    });
+});
 </script>
 </body>
 </html>
